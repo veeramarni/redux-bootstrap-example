@@ -1,5 +1,6 @@
 /// <reference path="../../interfaces/interfaces.d.ts" />
 
+import * as React from "react";
 import { Link } from "react-router";
 
 class AppLayout extends React.Component<any, any> {

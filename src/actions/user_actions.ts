@@ -13,10 +13,8 @@ let addUserAsync =  () => {
     };
 };
 
-let userActions = { 
-    addUserAsync, 
-    addUserBegin,
-    addUserSuccess 
+let userActions = {
+    addUserAsync
 };
 
 export default userActions;

@@ -4,6 +4,7 @@ import * as React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import userActions from "../../actions/user_actions";
+import Counter from "../../components/counter_component";
 
 function mapStateToPropsUserPage(state: any) {
     return { users: state.get("users") };
@@ -22,11 +23,11 @@ class UsersPage extends React.Component<any, any> {
         }
         return (
             <div>
-                <div id="users_page_title">Users Page!</div>
-                <div>
-                    <p>User count: <span id="user_count">{label}</span></p>
-                    <button id="add_user_btn" onClick={() => { this.props.actions.addUserAsync(); }}>Add User</button>
-                </div>
+                <div>Users Page!</div>
+                <br />
+                <Counter count={label}
+                         addBtnTextLabel={"Add User"}
+                         incrementAsync={() => { this.props.actions.addUserAsync(); } } />
             </div>
         );
     }

@@ -13,10 +13,8 @@ let addRepoAsync =  () => {
     };
 };
 
-let repoActions = { 
-    addRepoAsync, 
-    addRepoBegin, 
-    addRepoSuccess 
+let repoActions = {
+    addRepoAsync
 };
 
 export default repoActions;

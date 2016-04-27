@@ -1,5 +1,6 @@
 /// <reference path="../interfaces/interfaces.d.ts" />
 
+import * as Immutable from "immutable";
 import ACTION_TYPES from "../constants/action_types";
 
 const defaultUsersState = Immutable.fromJS({

@@ -1,3 +1,5 @@
+/// <reference path="../interfaces/interfaces.d.ts" />
+
 function makeActionCreator(type: string, ...argNames: string[]) {
   return function(...args: any[]) {
     let action: any = { type : type };
