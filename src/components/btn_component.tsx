@@ -1,0 +1,1 @@
+<button id="add_user_btn" onClick={() => { this.props.actions.addUserAsync(); }}>Add User</button>
