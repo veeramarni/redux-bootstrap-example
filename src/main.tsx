@@ -5,7 +5,10 @@ import bootstrap from "redux-bootstrap";
 import routes from "./config/routes";
 import reposReducer from "./reducers/repos_reducer";
 import usersReducer from "./reducers/users_reducer";
-debugger;
+
+// temp fix
+history.pushState({}, "", "/");
+
 bootstrap({
     container: "root",
     initialState: {},
