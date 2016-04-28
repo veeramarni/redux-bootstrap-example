@@ -36,5 +36,6 @@ typings
 .node_repl_history
 
 temp
+bundle
 src/**/*.js
 src/*.js
