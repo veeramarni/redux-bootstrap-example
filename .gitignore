@@ -13,6 +13,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+node_modules
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -26,7 +27,6 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
 typings
 
 # Optional npm cache directory
@@ -36,6 +36,5 @@ typings
 .node_repl_history
 
 temp
-bundle
 src/**/*.js
 src/*.js
