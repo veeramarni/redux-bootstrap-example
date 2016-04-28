@@ -21,8 +21,7 @@ gulp.task("lint", function() {
     
     return gulp.src([
         "src/**/**.ts",
-        "test/**/**.test.ts",
-        "type_definitions/redux-bootstrap/*.ts"
+        "test/**/**.test.ts"
     ])
     .pipe(tslint())
     .pipe(tslint.report("verbose", config));
@@ -35,8 +34,11 @@ var tsLibProject = tsc.createProject("tsconfig.json");
 
 gulp.task("build", function() {
     return gulp.src([
-        "src/**/*.ts",
-        "src/**/*.tsx"
+        "./typings/browser.d.ts",
+        "./node_modules/immutable/dist/immutable.d.ts",
+        "./src/interfaces/interfaces.d.ts",
+        "./src/**/**.ts",
+        "./src/**/**.tsx"
     ])
     .pipe(tsc(tsLibProject))
     .on("error", function (err) {
@@ -51,7 +53,7 @@ gulp.task("build", function() {
 gulp.task("bundle", function() {
 
   var mainFilePath = "temp/main.js";
-  var outputFolder   = "temp/bundle";
+  var outputFolder   = "bundle";
   var outputFileName = "app.js";
 
   var bundler = browserify({

@@ -17,6 +17,8 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+.typingsrc
+
 # node-waf configuration
 .lock-wscript
 
@@ -32,3 +34,7 @@ typings
 
 # Optional REPL history
 .node_repl_history
+
+temp
+src/**/*.js
+src/*.js

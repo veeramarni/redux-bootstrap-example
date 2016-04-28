@@ -22,7 +22,15 @@
   },
   "homepage": "https://github.com/remojansen/redux-bootstrap-example#readme",
   "dependencies": {
-    "redux-bootstrap": "^1.0.0-beta.2"
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.3.0",
+    "react-router-redux": "^4.0.4",
+    "redux": "^3.5.2",
+    "redux-bootstrap": "^1.0.0-beta.2",
+    "redux-immutable": "^3.0.6",
+    "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
@@ -31,6 +39,10 @@
     "gulp-typescript": "^2.13.0",
     "run-sequence": "^1.1.5",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "redux-devtools": "^3.2.0",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.0.11",
+    "redux-logger": "^2.6.1"
   }
 }

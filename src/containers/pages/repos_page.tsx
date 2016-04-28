@@ -1,5 +1,3 @@
-/// <reference path="../../interfaces/interfaces.d.ts" />
-
 import * as React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -23,10 +21,9 @@ class ReposPage extends React.Component<any, any> {
         }
         return (
             <div>
-                <div>Users Page!</div>
-                <br />
+                <h1>Repos Page!</h1>
                 <Counter count={label}
-                         addBtnTextLabel={"Add Repository"}
+                         addBtnTextLabel={"Add Repo"}
                          incrementAsync={() => { this.props.actions.addRepoAsync(); } } />
             </div>
         );

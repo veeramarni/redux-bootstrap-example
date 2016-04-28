@@ -1,5 +1,3 @@
-/// <reference path="../interfaces/interfaces.d.ts" />
-
 import * as React from "react";
 
 class Btn extends React.Component<IBtnProps, any> {

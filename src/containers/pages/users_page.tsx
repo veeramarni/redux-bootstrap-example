@@ -1,5 +1,3 @@
-/// <reference path="../../interfaces/interfaces.d.ts" />
-
 import * as React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -23,8 +21,7 @@ class UsersPage extends React.Component<any, any> {
         }
         return (
             <div>
-                <div>Users Page!</div>
-                <br />
+                <h1>Users Page!</h1>
                 <Counter count={label}
                          addBtnTextLabel={"Add User"}
                          incrementAsync={() => { this.props.actions.addUserAsync(); } } />
