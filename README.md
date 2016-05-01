@@ -1,12 +1,58 @@
 # redux-bootstrap-example
-An example to showcase how to use [redux-bootstrap](https://github.com/remojansen/redux-bootstrap).
 
-Live demo is [available at online](http://www.remojansen.com/redux-bootstrap-example/).
+[![Join the chat at https://gitter.im/redux-bootstrap/redux-bootstrap](https://badges.gitter.im/redux-bootstrap/redux-bootstrap.svg)](https://gitter.im/redux-bootstrap/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/redux-bootstrap/redux-bootstrap-example.svg?branch=master)](https://travis-ci.org/redux-bootstrap/redux-bootstrap-example)
+[![codecov.io](https://codecov.io/github/redux-bootstrap/redux-bootstrap-example/coverage.svg?branch=master)](https://codecov.io/github/redux-bootstrap/redux-bootstrap-example?branch=master)
+[![Dependencies](https://david-dm.org/redux-bootstrap/redux-bootstrap-example.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap-example#info=dependencies)
+[![img](https://david-dm.org/redux-bootstrap/redux-bootstrap/dev-status-example.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap-example/#info=devDependencies)
 
-![](https://raw.githubusercontent.com/remojansen/redux-bootstrap-example/master/media/home.png)
-![](https://raw.githubusercontent.com/remojansen/redux-bootstrap-example/master/media/users.png)
+An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
- 
-Please use the [redux-bootstrap issues page](https://github.com/remojansen/redux-bootstrap/issues) 
+## Live demo
+Live demo is [available at online](http://github.com/redux-bootstrap/redux-bootstrap-example/).
+
+![](https://raw.githubusercontent.com/redux-bootstrap/redux-bootstrap-example/master/media/home.png)
+![](https://raw.githubusercontent.com/redux-bootstrap/redux-bootstrap-example/master/media/users.png)
+
+### How to run this example?
+To build and run this example you will need to do clone this repository:
+
+```
+$ git clone https://github.com/redux-bootstrap/redux-bootstrap-example.git
+```
+
+Move into the project:
+
+```
+$ cd redux-bootstrap-example
+```
+
+Install typings:
+
+```
+$ npm install -g typings
+$ typings install
+```
+
+Install node modules:
+
+```
+$ npm install
+```
+
+Build the project:
+
+```
+$ gulp
+```
+
+Run the project:
+
+```
+$ node server.js
+```
+
+### Questions & issues 
+Please use the [redux-bootstrap issues page](https://github.com/redux-bootstrap/redux-bootstrap/issues) 
 instead of the issues page in this repo. If you have any questions about this example or the usage 
 of redux-bootstrap.
