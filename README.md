@@ -9,7 +9,7 @@
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
 ## Live demo
-Live demo is [available at online](http://github.com/redux-bootstrap/redux-bootstrap-example/).
+Live demo is [available at online](http://redux-bootstrap.github.io/redux-bootstrap-example/).
 
 ![](https://raw.githubusercontent.com/redux-bootstrap/redux-bootstrap-example/master/media/home.png)
 ![](https://raw.githubusercontent.com/redux-bootstrap/redux-bootstrap-example/master/media/users.png)
