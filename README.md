@@ -8,7 +8,15 @@
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
 ### How to run this example?
-To build and run this example you will need to do clone this repository:
+To build and run this example you will need to do the following:
+
+Install the Webpack development server:
+
+```
+$ npm install -g webpack-dev-server
+```
+
+Clone the repository:
 
 ```
 $ git clone https://github.com/redux-bootstrap/redux-bootstrap-example.git
@@ -26,20 +34,16 @@ Install node modules:
 $ npm install
 ```
 
-Build the project:
+Build and run the project:
 
 ```
-$ gulp
+$ webpack-dev-server
 ```
 
-Run the project:
+Open a web browser and navigate to the following URL:
 
 ```
-$ npm install http-server
-```
-
-```
-$ http-server
+http://127.0.0.1:8080/
 ```
 
 ### Questions & issues 
