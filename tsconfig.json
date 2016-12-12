@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["es6", "dom"],
-        "types": ["mocha", "redux"],
+        "types": ["mocha"],
         "sourceMap": true,
         "module": "commonjs",
         "moduleResolution": "node",
