@@ -2,7 +2,6 @@
 
 [![Join the chat at https://gitter.im/redux-bootstrap/redux-bootstrap](https://badges.gitter.im/redux-bootstrap/redux-bootstrap.svg)](https://gitter.im/redux-bootstrap/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/redux-bootstrap/redux-bootstrap-example.svg?branch=master)](https://travis-ci.org/redux-bootstrap/redux-bootstrap-example)
-[![codecov.io](https://codecov.io/github/redux-bootstrap/redux-bootstrap-example/coverage.svg?branch=master)](https://codecov.io/github/redux-bootstrap/redux-bootstrap-example?branch=master)
 [![Dependencies](https://david-dm.org/redux-bootstrap/redux-bootstrap-example.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap-example#info=dependencies)
 [![img](https://david-dm.org/redux-bootstrap/redux-bootstrap/dev-status-example.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap-example/#info=devDependencies)
 
