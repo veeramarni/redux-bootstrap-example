@@ -3,12 +3,13 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import repoActions from "../../actions/repo_actions";
 import Counter from "../../components/counter_component";
+import * as Redux from "redux";
 
 function mapStateToPropsReposPage(state: any) {
     return { repos: state.get("repos") };
 }
 
-function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
+function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch<any>) {
     return { actions : bindActionCreators(repoActions, dispatch) };
 }
 

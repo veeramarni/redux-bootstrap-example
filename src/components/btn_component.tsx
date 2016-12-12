@@ -1,6 +1,11 @@
 import * as React from "react";
 
-class Btn extends React.Component<IBtnProps, any> {
+interface BtnProps {
+    textLabel: string;
+    clickHandler: () => any;
+}
+
+class Btn extends React.Component<BtnProps, any> {
     public render() {
         return (
             <button onClick={() => { this.props.clickHandler(); }}>

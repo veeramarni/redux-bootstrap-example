@@ -1,5 +1,7 @@
 var bootstrap = require("redux-bootstrap");
-var routes = require("./config/routes");
+var routes = require("./temp/config/routes");
+
+
 
 var result = bootstrap({
     container: "root",

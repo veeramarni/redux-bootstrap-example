@@ -8,12 +8,6 @@
 
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
-## Live demo
-Live demo is [available at online](http://redux-bootstrap.github.io/redux-bootstrap-example/).
-
-![](https://raw.githubusercontent.com/redux-bootstrap/redux-bootstrap-example/master/media/home.png)
-![](https://raw.githubusercontent.com/redux-bootstrap/redux-bootstrap-example/master/media/users.png)
-
 ### How to run this example?
 To build and run this example you will need to do clone this repository:
 
@@ -25,13 +19,6 @@ Move into the project:
 
 ```
 $ cd redux-bootstrap-example
-```
-
-Install typings:
-
-```
-$ npm install -g typings
-$ typings install
 ```
 
 Install node modules:
@@ -49,7 +36,11 @@ $ gulp
 Run the project:
 
 ```
-$ node server.js
+$ npm install http-server
+```
+
+```
+$ http-server
 ```
 
 ### Questions & issues 

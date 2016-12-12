@@ -1,12 +1,13 @@
 import * as Immutable from "immutable";
 import ACTION_TYPES from "../constants/action_types";
+import * as Redux from "redux";
 
 const defaultReposState = Immutable.fromJS({
     loading: false,
     reposCount: 0
 });
 
-const reposReducer: Redux.Reducer = (previousState: any = defaultReposState, action: any) => {
+const reposReducer: Redux.Reducer<any> = (previousState: any = defaultReposState, action: any) => {
     switch (action.type) {
         case ACTION_TYPES.ADD_REPO_BEGIN:
             return previousState.set("loading", true);

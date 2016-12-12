@@ -17,30 +17,28 @@ var gulp        = require("gulp"),
 //******************************************************************************
 gulp.task("lint", function() {
     
-    var config =  { emitError: (process.env.CI) ? true : false };
+    var config =  { formatter: "verbose", emitError: (process.env.CI) ? true : false };
     
     return gulp.src([
         "src/**/**.ts",
         "test/**/**.test.ts"
     ])
-    .pipe(tslint())
-    .pipe(tslint.report("verbose", config));
+    .pipe(tslint(config))
+    .pipe(tslint.report());
+
 });
 
 //******************************************************************************
 //* BUILD SOURCE
 //******************************************************************************
-var tsLibProject = tsc.createProject("tsconfig.json");
+var tsLibProject = tsc.createProject("tsconfig.json", { typescript: require("typescript") });
 
 gulp.task("build", function() {
     return gulp.src([
-        "./typings/browser.d.ts",
-        "./node_modules/immutable/dist/immutable.d.ts",
-        "./src/interfaces/interfaces.d.ts",
         "./src/**/**.ts",
         "./src/**/**.tsx"
     ])
-    .pipe(tsc(tsLibProject))
+    .pipe(tsLibProject())
     .on("error", function (err) {
         process.exit(1);
     })

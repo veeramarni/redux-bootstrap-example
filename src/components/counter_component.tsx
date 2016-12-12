@@ -1,7 +1,13 @@
 import Btn from "./btn_component";
 import * as React from "react";
 
-class Counter extends React.Component<ICounterProps, any> {
+interface CounterProps {
+    count: string;
+    addBtnTextLabel: string;
+    incrementAsync: () => any;
+}
+
+class Counter extends React.Component<CounterProps, any> {
     public render() {
         return (
             <div>
