@@ -18,7 +18,14 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+            {
+                test: /\.tsx?$/, 
+                loader: "awesome-typescript-loader"
+            },
+            {
+                test: /\.scss$/,
+                loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
+            }
         ],
         preLoaders: [
             { test: /\.js$/, loader: "source-map-loader" }
@@ -33,5 +40,4 @@ module.exports = {
 TODO
 - ENVIRONMENTS / TREE SHAKING
 - SERVER SIDE RENDERING
-- SASS
 */
