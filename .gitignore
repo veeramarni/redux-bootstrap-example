@@ -38,5 +38,6 @@ typings
 temp
 bundle
 dist
+coverage
 src/**/*.js
 src/*.js

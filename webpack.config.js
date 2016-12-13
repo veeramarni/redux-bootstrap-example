@@ -21,28 +21,18 @@ module.exports = {
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
         ],
         preLoaders: [
-            { test: /\.ts$/, loader: 'tslint' },
-            { test: /\.tsx$/, loader: 'tslint' },
             { test: /\.js$/, loader: "source-map-loader" }
         ]
     },
     plugins: [
         new CheckerPlugin()
-    ],
-    tslint: {
-        emitErrors: true,
-        failOnHint: true
-    }
+    ]
 };
 
 /*
 TODO
-- ENVIRONMENTS
-- HOT MODULE REPLACEMENT
+- ENVIRONMENTS / TREE SHAKING
 - SERVER SIDE RENDERING
 - SASS
-- DEBUGGING WITH SOURCE MAPS
-- UNIT TEST (MOCHA)
 - BROWSER TEST (KARMA)
-- TREE SHAKING?
 */

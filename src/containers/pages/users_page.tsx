@@ -22,7 +22,7 @@ class UsersPage extends React.Component<any, any> {
         }
         return (
             <div>
-                <h1>Users Page!</h1>
+                <h1>Users Page!!</h1>
                 <Counter count={label}
                          addBtnTextLabel={"Add User"}
                          incrementAsync={() => { this.props.actions.addUserAsync(); } } />

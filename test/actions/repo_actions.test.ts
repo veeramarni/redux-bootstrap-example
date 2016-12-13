@@ -23,11 +23,11 @@ describe("Repo Actions", () => {
 
         let dispatchableAddRepoAsync = repoActions.addRepoAsync();
 
-        dispatchableAddRepoAsync(dispatchMock);
+        dispatchableAddRepoAsync(dispatchMockSpy);
 
         setTimeout(() => {
             expect(dispatchMockSpy.getCall(0).args[0].type).eql(ACTION_TYPES.ADD_REPO_BEGIN);
-            expect(dispatchMockSpy.getCall(0).args[1].type).eql(ACTION_TYPES.ADD_REPO_SUCCESS);
+            expect(dispatchMockSpy.getCall(1).args[0].type).eql(ACTION_TYPES.ADD_REPO_SUCCESS);
             done();
         }, 100);
 
