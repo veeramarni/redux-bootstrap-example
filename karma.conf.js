@@ -32,6 +32,9 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     autoWatch: false,
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_INFO,
+    phantomjsLauncher: {
+      exitOnResourceError: true
+    }
   });
 };

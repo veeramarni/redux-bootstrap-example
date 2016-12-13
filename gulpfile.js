@@ -6,10 +6,10 @@
 var gulp = require("gulp"),
     tslint = require("gulp-tslint"),
     karma = require("karma"),
-    tsc = require("gulp-typescript"),
     browserify = require("browserify"),
     source = require("vinyl-source-stream"),
     buffer = require("vinyl-buffer"),
+    tsify = require("tsify"),
     sourcemaps = require("gulp-sourcemaps"),
     runSequence = require("run-sequence");
 
@@ -34,37 +34,9 @@ gulp.task("lint", function() {
 //******************************************************************************
 //* BUILD TESTS
 //******************************************************************************
-var tstProject = tsc.createProject("tsconfig.json");
-
-gulp.task("build-src", function() {
-    return gulp.src([
-        "src/**/*.ts",
-        "src/**/*.tsx"
-    ])
-    .pipe(tstProject())
-    .on("error", function (err) {
-        process.exit(1);
-    })
-    .js.pipe(gulp.dest("temp/src/"));
-});
-
-var tsTestProject = tsc.createProject("tsconfig.json");
-
-gulp.task("build-test", function() {
-    return gulp.src([
-        "test/**/*.ts",
-        "test/**/*.tsx"
-    ])
-    .pipe(tsTestProject())
-    .on("error", function (err) {
-        process.exit(1);
-    })
-    .js.pipe(gulp.dest("temp/test/"));
-});
-
 gulp.task("bundle", function() {
 
-  var mainFilePath = "temp/test/index.test.js";
+  var mainFilePath = "test/index.test.ts";
   var outputFolder   = "temp/bundle";
   var outputFileName = "index.js";
 
@@ -74,11 +46,12 @@ gulp.task("bundle", function() {
 
   // TS compiler options are in tsconfig.json file
   return bundler.add(mainFilePath)
+                .plugin(tsify)
                 .bundle()
                 .pipe(source(outputFileName))
                 .pipe(buffer())
                 .pipe(sourcemaps.init({ loadMaps: true }))
-                .pipe(sourcemaps.write("."))
+                .pipe(sourcemaps.write())
                 .pipe(gulp.dest(outputFolder));
 });
 
@@ -104,7 +77,7 @@ gulp.task("karma", function (done) {
 //******************************************************************************
 gulp.task("default", function (cb) {
   runSequence(
-      ["lint", "build-src", "build-test"],
+      "lint",
       "bundle",
       "karma",
       cb
