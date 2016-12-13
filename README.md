@@ -37,7 +37,7 @@ $ npm install
 Build and run the project:
 
 ```
-$ webpack-dev-server
+$ npm start
 ```
 
 Open a web browser and navigate to the following URL:

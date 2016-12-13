@@ -1,7 +1,12 @@
 const { CheckerPlugin } = require("awesome-typescript-loader")
 
 module.exports = {
-    entry: "./src/index.tsx", // use array
+    entry: [
+        "./src/index.tsx"
+    ],
+    devServer: {
+        inline: true
+    },
     output: {
         filename: "bundle.js",
         path: __dirname + "/dist",
@@ -39,4 +44,5 @@ TODO
 - DEBUGGING WITH SOURCE MAPS
 - UNIT TEST (MOCHA)
 - BROWSER TEST (KARMA)
+- TREE SHAKING?
 */

@@ -4,7 +4,8 @@
   "description": "redux-bootstrap example",
   "main": "index.js",
   "scripts": {
-    "test": "webpack"
+    "test": "webpack",
+    "start": "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "redux-logger": "^2.6.1"
   },
   "devDependencies": {
+    "@types/chai": "^3.4.34",
     "@types/history": "^2.0.41",
     "@types/mocha": "^2.2.33",
     "@types/react": "^0.14.55",
@@ -40,13 +42,17 @@
     "@types/redux-immutable": "^3.0.31",
     "@types/redux-logger": "^2.6.32",
     "@types/redux-thunk": "^2.1.32",
+    "@types/sinon": "^1.16.32",
     "awesome-typescript-loader": "^3.0.0-beta.13",
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "run-sequence": "^1.1.5",
+    "sinon": "^1.17.6",
     "source-map-loader": "^0.1.5",
     "tslint": "^4.0.1",
     "tslint-loader": "^3.3.0",
     "typescript": "^2.1.4",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }
