@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    singleRun: true, // Disable to debug
+    singleRun: true,
     basePath: "",
     frameworks: ["mocha"],
     browsers: [

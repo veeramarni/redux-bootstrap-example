@@ -1,4 +1,6 @@
 const { CheckerPlugin } = require("awesome-typescript-loader")
+var Visualizer = require("webpack-visualizer-plugin");
+const webpack = require("webpack");
 
 module.exports = {
     entry: [
@@ -32,7 +34,15 @@ module.exports = {
         ]
     },
     plugins: [
-        new CheckerPlugin()
+        new CheckerPlugin(),
+        new Visualizer({
+            filename: './statistics.html'
+        }),
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.DedupePlugin()
     ]
 };
 
@@ -40,4 +50,5 @@ module.exports = {
 TODO
 - ENVIRONMENTS / TREE SHAKING
 - SERVER SIDE RENDERING
+- TEST COVERAGE EXCLUDE NODE_MODULES
 */

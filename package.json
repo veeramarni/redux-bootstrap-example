@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "webpack && gulp",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot",
+    "stats": "webpack && open dist/statistics.html "
   },
   "repository": {
     "type": "git",
@@ -69,6 +70,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "webpack-visualizer-plugin": "^0.1.5"
   }
 }
