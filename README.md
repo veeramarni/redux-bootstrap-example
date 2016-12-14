@@ -84,6 +84,7 @@ $ npm run release
 We have plans to try to fix the following items:
 
 - [ ] Enable server-side rendering
+- [ ] Dockerize
 
 ## Questions & issues
 Please use the [redux-bootstrap issues page](https://github.com/redux-bootstrap/redux-bootstrap/issues) 

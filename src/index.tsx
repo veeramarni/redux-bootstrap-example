@@ -12,9 +12,12 @@ if (process.env.NODE_ENV !== "production") {
     middleware.push(createLogger());
 }
 
+// Grab the state from a global injected into server-generated HTML
+const preloadedState = (window as any).__PRELOADED_STATE__;
+
 bootstrap({
     container: "root",
-    initialState: {},
+    initialState: preloadedState || {},
     middlewares: middleware,
     reducers: {
         repos: reposReducer,
