@@ -1,8 +1,6 @@
 var bootstrap = require("redux-bootstrap");
 var routes = require("./temp/config/routes");
 
-
-
 var result = bootstrap({
     container: "root",
     createHistory: createMemoryHistory,

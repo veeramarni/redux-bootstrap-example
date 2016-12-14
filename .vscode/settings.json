@@ -3,6 +3,8 @@
     "files.exclude": {
         "**/.git": true,
 		"**/.DS_Store": true,
-		"temp": true
+		"temp": true,
+        "coverage": true,
+        "dist": true
     }
 }

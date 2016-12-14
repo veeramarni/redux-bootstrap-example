@@ -7,8 +7,19 @@
 
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
-### How to run this example?
-To build and run this example you will need to do clone this repository:
+## How to run this example?
+
+> :warning: Please ensure that you are using the latest version of Node.js.
+
+To build and run this example you will need to do the following:
+
+Install the Webpack development server:
+
+```
+$ npm install -g webpack-dev-server
+```
+
+Clone the repository:
 
 ```
 $ git clone https://github.com/redux-bootstrap/redux-bootstrap-example.git
@@ -26,23 +37,51 @@ Install node modules:
 $ npm install
 ```
 
-Build the project:
+Build and run the project:
 
 ```
-$ gulp
+$ npm start
 ```
 
-Run the project:
+Open a web browser and navigate to the following URL:
 
 ```
-$ npm install http-server
+http://127.0.0.1:8080/
 ```
 
+## How to run the unit tests?
+
+You can run the tests using the following command:
+
 ```
-$ http-server
+$ npm test
 ```
 
-### Questions & issues 
+A test coverage report is available under the `coverage` folder:
+
+![](media/coverage.png)
+
+## How to see the bundle stats?
+
+You can rsee the bundle stats using the following command:
+
+```
+$ npm run stats
+```
+
+A bundle size report will be displayed on screen:
+
+![](media/stats.png)
+
+## TODOs
+We have plans to fix the following items:
+
+- [ ] Development and production enviroments
+- [ ] Enable server-side rendering
+- [ ] Exclude node_modules from coverage report
+- [ ] Optimize bundle size (DedupePlugin)
+
+## Questions & issues 
 Please use the [redux-bootstrap issues page](https://github.com/redux-bootstrap/redux-bootstrap/issues) 
 instead of the issues page in this repo. If you have any questions about this example or the usage 
 of redux-bootstrap.

@@ -13,7 +13,7 @@ class AppLayout extends React.Component<any, any> {
                 {this.props.children}
                 <div className="break"/>
                 <p>
-                    Note: Use <span className="label">Ctrl</span> + <span className="label">h</span> 
+                    Note: Use <span className="label">Ctrl</span> + <span className="label">h</span>
                     to show/hide the redux development tools!
                 </p>
             </div>
