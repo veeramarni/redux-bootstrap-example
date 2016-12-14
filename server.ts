@@ -1,4 +1,5 @@
 import * as express from "express";
+// import * as path from "path";
 import { createMemoryHistory } from "history";
 import { renderToStaticMarkup } from "react-dom/server";
 import { bootstrap } from "redux-bootstrap";
@@ -7,36 +8,67 @@ import reposReducer from "./src/reducers/repos_reducer";
 import usersReducer from "./src/reducers/users_reducer";
 import thunk from "redux-thunk";
 
-function handleRender(req: express.Request, res: express.Response) {
+function renderFullPage(html: string, preloadedState: any) {
+    return `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>redux-bootstrap example</title>
+        </head>
+        <body>
+            <div id="root">${html}</div>
+            <script>
+                window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}
+            </script>
+            <script src="./dist/bundle.js"></script>
+        </body>
+        </html>
+    `;
+}
 
-    // TODO set preloadedState
-    let preloadedState = {};
+function handleRender(req: express.Request, res: express.Response, next: express.NextFunction) {
 
-    let result = bootstrap({
-        container: "root",
-        createHistory: createMemoryHistory,
-        initialState: preloadedState || {},
-        middlewares: [thunk],
-        reducers: {
-            repos: reposReducer,
-            users: usersReducer
-        },
-        render: () => { /*  skip first render, we navigate first */ },
-        routes: routes
-    });
-
+    // Ignote static assets
     if (req.url.indexOf(".") === -1) {
+
+        // TODO set preloadedState
+        let state = {};
+
+        let result = bootstrap({
+            container: "root",
+            createHistory: createMemoryHistory,
+            initialState: state,
+            middlewares: [thunk],
+            reducers: {
+                repos: reposReducer,
+                users: usersReducer
+            },
+            render: () => { /*  skip first render, we navigate first */ },
+            routes: routes
+        });
+
         result.history.push(req.url);
+
+        let html = renderFullPage(
+            renderToStaticMarkup(result.root),
+            state
+        );
+
+        res.send(html);
+
+    } else {
+        next();
     }
 
-    result.output = renderToStaticMarkup(result.root);
-
-    res.send(result.output);
 }
 
 const app = express();
 const port = 3000;
 app.use(handleRender);
+app.use("/dist", express.static("dist"));
 
 app.listen(port);
 

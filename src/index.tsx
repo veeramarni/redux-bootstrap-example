@@ -6,18 +6,17 @@ import reposReducer from "./reducers/repos_reducer";
 import usersReducer from "./reducers/users_reducer";
 import "../style/site.scss";
 
+declare var preloadedState: any;
+
 let middleware: any[] = [thunk];
 
 if (process.env.NODE_ENV !== "production") {
     middleware.push(createLogger());
 }
 
-// Grab the state from a global injected into server-generated HTML
-const preloadedState = (window as any).__PRELOADED_STATE__;
-
 bootstrap({
     container: "root",
-    initialState: preloadedState || {},
+    initialState: preloadedState,
     middlewares: middleware,
     reducers: {
         repos: reposReducer,
