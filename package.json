@@ -4,9 +4,10 @@
   "description": "redux-bootstrap example",
   "main": "index.js",
   "scripts": {
-    "test": "webpack && gulp",
+    "test": "npm run release && gulp",
     "start": "webpack-dev-server --hot",
-    "stats": "webpack && open dist/statistics.html "
+    "stats": "webpack && open dist/statistics.html",
+    "release": "NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "@types/chai": "^3.4.34",
     "@types/history": "^2.0.41",
     "@types/mocha": "^2.2.33",
+    "@types/node": "^6.0.52",
     "@types/react": "^0.14.55",
     "@types/react-dom": "^0.14.19",
     "@types/react-redux": "^4.4.35",
