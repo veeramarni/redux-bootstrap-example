@@ -8,6 +8,9 @@
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
 ## How to run this example?
+
+> :warning: Please ensure that you are using the latest version of Node.js.
+
 To build and run this example you will need to do the following:
 
 Install the Webpack development server:
