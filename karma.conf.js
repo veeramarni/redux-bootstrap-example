@@ -8,11 +8,11 @@ module.exports = function (config) {
     ],
     reporters: ["mocha", "coverage", "karma-remap-istanbul"],
     coverageReporter: {
-      dir : "coverage/"
+      dir : "coverage"
     },
     remapIstanbulReporter: {
       reports: {
-        html: 'coverage'
+        json: 'coverage/coverage-remapped.json'
       }
     },
     plugins : [

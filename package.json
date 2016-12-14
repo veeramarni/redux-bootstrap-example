@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run release && gulp",
-    "start": "webpack-dev-server --hot",
-    "stats": "webpack && open dist/statistics.html",
+    "start": "NODE_ENV=development webpack-dev-server --hot",
+    "stats": "npm run release && open dist/statistics.html",
     "release": "NODE_ENV=production webpack"
   },
   "repository": {
@@ -54,6 +54,7 @@
     "gulp-sourcemaps": "^1.9.1",
     "gulp-tslint": "^7.0.1",
     "html5-history-api": "^4.2.7",
+    "istanbul": "^0.4.5",
     "karma": "^1.3.0",
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",

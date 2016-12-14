@@ -10,6 +10,7 @@ var gulp = require("gulp"),
     source = require("vinyl-source-stream"),
     buffer = require("vinyl-buffer"),
     tsify = require("tsify"),
+    istanbul = require("istanbul"),
     sourcemaps = require("gulp-sourcemaps"),
     runSequence = require("run-sequence");
 
@@ -63,13 +64,39 @@ gulp.task("karma", function (done) {
     configFile: __dirname + "/karma.conf.js"
   }, function(code) {
         if (code === 1){
-           console.log('Unit Test failures, exiting process');
-           done('Unit Test Failures');
+           console.log("Unit Test failures, exiting process");
+           done("Unit Test Failures");
         } else {
-            console.log('Unit Tests passed');
+            console.log("Unit Tests passed");
             done();
         }
     }).start();
+});
+
+gulp.task("coverage", function (done) {
+
+    // https://github.com/SitePen/remap-istanbul/issues/51#issuecomment-216466344
+
+    var collector = new istanbul.Collector();
+    var reporter = new istanbul.Reporter();
+
+    var remappedJson = require("./coverage/coverage-remapped.json");
+    var keys = Object.keys(remappedJson);
+    var coverage = {};
+
+    for (var i = 0; i < keys.length; i++) {
+        if (keys[ i ].startsWith("src/")) {
+            coverage[ keys[ i ] ] = remappedJson[ keys[ i ] ];
+        }
+    }
+
+    collector.add(coverage);
+    reporter.add("html");
+
+    reporter.write(collector, true, function() {
+        done();
+    });
+
 });
 
 //******************************************************************************
@@ -80,6 +107,7 @@ gulp.task("default", function (cb) {
       "lint",
       "bundle",
       "karma",
+      "coverage",
       cb
     );
 });
