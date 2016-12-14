@@ -45,10 +45,3 @@ module.exports = {
         new webpack.optimize.DedupePlugin()
     ]
 };
-
-/*
-TODO
-- ENVIRONMENTS / TREE SHAKING
-- SERVER SIDE RENDERING
-- TEST COVERAGE EXCLUDE NODE_MODULES
-*/
