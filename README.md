@@ -84,9 +84,8 @@ $ npm run release
 We have plans to try to fix the following items:
 
 - [ ] Enable server-side rendering
-- [ ] Exclude node_modules from coverage report
 
-## Questions & issues 
+## Questions & issues
 Please use the [redux-bootstrap issues page](https://github.com/redux-bootstrap/redux-bootstrap/issues) 
 instead of the issues page in this repo. If you have any questions about this example or the usage 
 of redux-bootstrap.
