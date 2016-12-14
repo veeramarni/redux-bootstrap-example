@@ -80,6 +80,9 @@ gulp.task("coverage", function (done) {
     var collector = new istanbul.Collector();
     var reporter = new istanbul.Reporter();
 
+    reporter.add("html");
+    reporter.addAll([ 'lcov', 'text' ]);
+
     var remappedJson = require("./coverage/coverage-remapped.json");
     var keys = Object.keys(remappedJson);
     var coverage = {};
@@ -91,7 +94,6 @@ gulp.task("coverage", function (done) {
     }
 
     collector.add(coverage);
-    reporter.add("html");
 
     reporter.write(collector, true, function() {
         done();
