@@ -6,10 +6,16 @@ import reposReducer from "./reducers/repos_reducer";
 import usersReducer from "./reducers/users_reducer";
 import "../style/site.scss";
 
+let middleware: any[] = [thunk];
+
+if (process.env.NODE_ENV !== "production") {
+    middleware.push(createLogger());
+}
+
 bootstrap({
     container: "root",
     initialState: {},
-    middlewares: [thunk, createLogger()],
+    middlewares: middleware,
     reducers: {
         repos: reposReducer,
         users: usersReducer

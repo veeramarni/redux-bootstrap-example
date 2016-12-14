@@ -63,7 +63,7 @@ A test coverage report is available under the `coverage` folder:
 
 ## How to see the bundle stats?
 
-You can rsee the bundle stats using the following command:
+You can see the bundle stats using the following command:
 
 ```
 $ npm run stats
@@ -73,13 +73,18 @@ A bundle size report will be displayed on screen:
 
 ![](media/stats.png)
 
-## TODOs
-We have plans to fix the following items:
+## How to create a production bundle?
+You can create a production-ready bundle using the following command:
 
-- [ ] Development and production enviroments
+```
+$ npm run release
+```
+
+## TODOs
+We have plans to try to fix the following items:
+
 - [ ] Enable server-side rendering
 - [ ] Exclude node_modules from coverage report
-- [ ] Optimize bundle size (DedupePlugin)
 
 ## Questions & issues 
 Please use the [redux-bootstrap issues page](https://github.com/redux-bootstrap/redux-bootstrap/issues) 

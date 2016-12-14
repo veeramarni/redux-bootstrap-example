@@ -2,6 +2,26 @@ const { CheckerPlugin } = require("awesome-typescript-loader")
 var Visualizer = require("webpack-visualizer-plugin");
 const webpack = require("webpack");
 
+var corePlugins = [
+    new CheckerPlugin(),
+    new webpack.DefinePlugin({
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'development')
+    })
+];
+
+var devePlugins = [
+    new Visualizer({
+        filename: './statistics.html'
+    })
+];
+
+var prodPlugins = [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.DedupePlugin()
+];
+
+var plugins = process.env.NODE_ENV === "production" ? corePlugins.concat(prodPlugins) : corePlugins.concat(devePlugins)
+
 module.exports = {
     entry: [
         "./src/index.tsx"
@@ -33,15 +53,5 @@ module.exports = {
             { test: /\.js$/, loader: "source-map-loader" }
         ]
     },
-    plugins: [
-        new CheckerPlugin(),
-        new Visualizer({
-            filename: './statistics.html'
-        }),
-        new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'development')
-        }),
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.optimize.DedupePlugin()
-    ]
+    plugins: plugins
 };
