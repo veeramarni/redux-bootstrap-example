@@ -80,10 +80,12 @@ You can create a production-ready bundle using the following command:
 $ npm run release
 ```
 
-## TODOs
-We have plans to try to fix the following items:
-
-- [ ] Enable server-side rendering
+## How to use server-side rendering?
+You can run the application with server-side rendering enabled using the following commands:
+```
+$ npm install -g ts-node
+$ NODE_ENV=production node server.ts
+```
 
 ## Questions & issues
 Please use the [redux-bootstrap issues page](https://github.com/redux-bootstrap/redux-bootstrap/issues) 

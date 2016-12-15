@@ -6,6 +6,8 @@ import reposReducer from "./reducers/repos_reducer";
 import usersReducer from "./reducers/users_reducer";
 import "../style/site.scss";
 
+declare var preloadedState: any;
+
 let middleware: any[] = [thunk];
 
 if (process.env.NODE_ENV !== "production") {
@@ -14,7 +16,7 @@ if (process.env.NODE_ENV !== "production") {
 
 bootstrap({
     container: "root",
-    initialState: {},
+    initialState: preloadedState,
     middlewares: middleware,
     reducers: {
         repos: reposReducer,
