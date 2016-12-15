@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run release && gulp",
-    "start": "NODE_ENV=development webpack-dev-server --hot",
+    "start": "NODE_ENV=development webpack-dev-server --hot --history-api-fallback",
     "stats": "npm run release && open dist/statistics.html",
     "release": "NODE_ENV=production webpack"
   },
