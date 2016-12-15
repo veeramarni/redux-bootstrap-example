@@ -1,5 +1,3 @@
-import { throttle } from "lodash";
-
 function loadState() {
     try {
         const serializedState = localStorage.getItem("state");
@@ -12,7 +10,7 @@ function loadState() {
     }
 }
 
-function unprotectedSaveState(state: any) {
+function saveState(state: any) {
     try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem("state", serializedState);
@@ -20,7 +18,5 @@ function unprotectedSaveState(state: any) {
         // Ignore write errors
     }
 }
-
-let saveState = throttle(unprotectedSaveState, 1000);
 
 export { loadState, saveState };
