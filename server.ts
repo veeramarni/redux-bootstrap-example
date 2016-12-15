@@ -8,7 +8,7 @@ import usersReducer from "./src/reducers/users_reducer";
 import thunk from "redux-thunk";
 import * as sass from "node-sass";
 
-function renderFullPage(css: string, html: string, preloadedState: any) {
+function renderFullPage(css: string, html: string, preloadedState: string) {
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -22,7 +22,7 @@ function renderFullPage(css: string, html: string, preloadedState: any) {
         <body>
             <div id="root">${html}</div>
             <script>
-                window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}
+                window.__PRELOADED_STATE__ = ${preloadedState}
             </script>
             <script src="./dist/bundle.js"></script>
         </body>
@@ -36,13 +36,10 @@ function getHandleRender(css: string) {
         // Ignote static assets
         if (req.url.indexOf(".") === -1) {
 
-            // TODO set preloadedState
-            let state = {};
-
             let result = bootstrap({
                 container: "root",
                 createHistory: createMemoryHistory,
-                initialState: state,
+                initialState: {},
                 middlewares: [thunk],
                 reducers: {
                     repos: reposReducer,
@@ -54,10 +51,12 @@ function getHandleRender(css: string) {
 
             result.history.push(req.url);
 
+            let state = result.store.getState();
+
             let html = renderFullPage(
                 css,
                 renderToStaticMarkup(result.root),
-                state
+                JSON.stringify(state)
             );
 
             res.send(html);

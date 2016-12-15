@@ -12,12 +12,22 @@ class AppLayout extends React.Component<any, any> {
                 </div>
                 {this.props.children}
                 <div className="break"/>
+                {this._renderDevtoolsNote()}
+            </div>
+        );
+    }
+
+    private _renderDevtoolsNote() {
+        if (process.env.NODE_ENV === "production") {
+            return <div/>;
+        } else {
+            return (
                 <p>
                     Note: Use <span className="label">Ctrl</span> + <span className="label">h</span>
                     to show/hide the redux development tools!
                 </p>
-            </div>
-        );
+            );
+        }
     }
 }
 
