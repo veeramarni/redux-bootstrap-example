@@ -8,6 +8,23 @@ import usersReducer from "./src/reducers/users_reducer";
 import thunk from "redux-thunk";
 import * as sass from "node-sass";
 
+/*
+    Note: Application paths in this file are relative to release folder (/dist/release).
+    You can use the following commands to run this node application manually: 
+
+        $ npm run release
+        $ cd dist/release
+        $ npm install --only=production
+        $ node server.js
+
+    To run the application inside a Docker you will need to install docker and 
+    run the following commands from the application's root directtory:
+
+        $ docker build -t redux-bootstrap/example .
+        $ docker run -p 3000:3000 redux-bootstrap/example
+
+*/
+
 function renderFullPage(css: string, html: string, preloadedState: string) {
     return `
         <!DOCTYPE html>
@@ -69,7 +86,7 @@ function getHandleRender(css: string) {
 }
 
 sass.render({
-  file: "./style/site.scss"
+  file: "./site.scss"
 }, (error, result) => {
     if (error !== undefined) {
         let handleRender = getHandleRender(result.css.toString("utf8"));

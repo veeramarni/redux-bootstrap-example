@@ -9,15 +9,9 @@ An example to showcase how to use [redux-bootstrap](https://github.com/redux-boo
 
 ## How to run this example?
 
-> :warning: Please ensure that you are using the latest version of Node.js.
+> :warning: Please ensure that you are using the latest version of Node.js and Docker.
 
 To build and run this example you will need to do the following:
-
-Install the Webpack development server:
-
-```
-$ npm install -g webpack-dev-server
-```
 
 Clone the repository:
 
@@ -37,54 +31,32 @@ Install node modules:
 $ npm install
 ```
 
-Build and run the project:
+Install the Webpack development server:
 
 ```
-$ npm start
+$ npm install -g webpack-dev-server
 ```
 
-Open a web browser and navigate to the following URL:
+## Commands
 
-```
-http://127.0.0.1:8080/
-```
+- `$ npm start` runs the app using `webpack-dev-server` at `http://127.0.0.1:8080` with [HMR](https://webpack.github.io/docs/hot-module-replacement.html) enabled.
+- `$ npm test` runs the application unit tests.
+- `$ npm run coverage` generates a test coverage report.
+- `$ npm run stats` generates a bundle size report.
+- `$ npm run release` prepares everything ready for the generation of a Docker image.
 
-## How to run the unit tests?
-
-You can run the tests using the following command:
-
-```
-$ npm test
-```
-
-A test coverage report is available under the `coverage` folder:
-
-![](media/coverage.png)
-
-## How to see the bundle stats?
-
-You can see the bundle stats using the following command:
-
-```
-$ npm run stats
-```
-
-A bundle size report will be displayed on screen:
-
-![](media/stats.png)
-
-## How to create a production bundle?
-You can create a production-ready bundle using the following command:
+## Docker suppor
+After executing the release command:
 
 ```
 $ npm run release
 ```
 
-## How to use server-side rendering?
-You can run the application with server-side rendering enabled using the following commands:
+You will be ready to create and run a docker container:
+
 ```
-$ npm install -g ts-node
-$ NODE_ENV=production node server.ts
+$ docker build -t redux-bootstrap/example .
+$ docker run -p 3000:3000 redux-bootstrap/example
 ```
 
 ## Questions & issues

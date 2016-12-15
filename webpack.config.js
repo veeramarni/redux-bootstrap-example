@@ -6,13 +6,14 @@ var corePlugins = [
     new CheckerPlugin(),
     new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
+    new Visualizer({
+        filename: './statistics.html'
     })
 ];
 
 var devePlugins = [
-    new Visualizer({
-        filename: './statistics.html'
-    })
+    // Add dev plugins here
 ];
 
 var prodPlugins = [

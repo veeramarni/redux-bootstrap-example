@@ -1,15 +1,17 @@
-FROM node:argon
+FROM node:boron
 
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Copy Source
-COPY ./index.html /usr/src/app/
-COPY ./dist/bundle.js /usr/src/app/dist/
+COPY ./dist/release /usr/src/app/
 
 # Install app dependencies
-RUN npm install
+RUN npm install --only=production
 
-# Run CI
-RUN npm test
+# Declare environment variables
+ENV NODE_ENV production
+
+# Run
+CMD [ "node", "server.js" ]
