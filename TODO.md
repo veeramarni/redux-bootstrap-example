@@ -1,8 +1,7 @@
 # TODOs
 
 - Enable HMR with SSR.
-- Cache state using localstorage so state is not lost when HMR takes place.
-- Use a [more realistic](https://jsonplaceholder.typicode.com/) app as example.
+- Use a [more realistic](https://jsonplaceholder.typicode.com/) app as example to showcase async server side actions.
 - Finish Dockerfile and document it.
-- [Add a "Deploy to Docker Cloud" button](https://docs.docker.com/docker-cloud/apps/deploy-to-cloud-btn/).
-- Add npm script to compile `server.ts` instead of `ts-node`.
+- [Push Docker Image to a Registry as part of CI](https://docs.travis-ci.com/user/docker/#Pushing-a-Docker-Image-to-a-Registry).
+- Add script to compile `server.ts` instead of `ts-node`.
