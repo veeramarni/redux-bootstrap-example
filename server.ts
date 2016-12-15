@@ -1,5 +1,4 @@
 import * as express from "express";
-// import * as path from "path";
 import { createMemoryHistory } from "history";
 import { renderToStaticMarkup } from "react-dom/server";
 import { bootstrap } from "redux-bootstrap";
@@ -7,8 +6,9 @@ import routes from "./src/config/routes";
 import reposReducer from "./src/reducers/repos_reducer";
 import usersReducer from "./src/reducers/users_reducer";
 import thunk from "redux-thunk";
+import * as sass from "node-sass";
 
-function renderFullPage(html: string, preloadedState: any) {
+function renderFullPage(css: string, html: string, preloadedState: any) {
     return `
         <!DOCTYPE html>
         <html lang="en">
@@ -17,6 +17,7 @@ function renderFullPage(html: string, preloadedState: any) {
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <title>redux-bootstrap example</title>
+            <style>${css}</style>
         </head>
         <body>
             <div id="root">${html}</div>
@@ -29,47 +30,56 @@ function renderFullPage(html: string, preloadedState: any) {
     `;
 }
 
-function handleRender(req: express.Request, res: express.Response, next: express.NextFunction) {
+function getHandleRender(css: string) {
+    return function handleRender(req: express.Request, res: express.Response, next: express.NextFunction) {
 
-    // Ignote static assets
-    if (req.url.indexOf(".") === -1) {
+        // Ignote static assets
+        if (req.url.indexOf(".") === -1) {
 
-        // TODO set preloadedState
-        let state = {};
+            // TODO set preloadedState
+            let state = {};
 
-        let result = bootstrap({
-            container: "root",
-            createHistory: createMemoryHistory,
-            initialState: state,
-            middlewares: [thunk],
-            reducers: {
-                repos: reposReducer,
-                users: usersReducer
-            },
-            render: () => { /*  skip first render, we navigate first */ },
-            routes: routes
-        });
+            let result = bootstrap({
+                container: "root",
+                createHistory: createMemoryHistory,
+                initialState: state,
+                middlewares: [thunk],
+                reducers: {
+                    repos: reposReducer,
+                    users: usersReducer
+                },
+                render: () => { /*  skip first render, we navigate first */ },
+                routes: routes
+            });
 
-        result.history.push(req.url);
+            result.history.push(req.url);
 
-        let html = renderFullPage(
-            renderToStaticMarkup(result.root),
-            state
-        );
+            let html = renderFullPage(
+                css,
+                renderToStaticMarkup(result.root),
+                state
+            );
 
-        res.send(html);
+            res.send(html);
 
-    } else {
-        next();
-    }
+        } else {
+            next();
+        }
 
+    };
 }
 
-const app = express();
-const port = 3000;
-app.use(handleRender);
-app.use("/dist", express.static("dist"));
-
-app.listen(port);
+sass.render({
+  file: "./style/site.scss"
+}, (error, result) => {
+    if (error !== undefined) {
+        let handleRender = getHandleRender(result.css.toString("utf8"));
+        let app = express();
+        let port = 3000;
+        app.use(handleRender);
+        app.use("/dist", express.static("dist"));
+        app.listen(port);
+    }
+});
 
 console.log("Starting up http-server on: http:127.0.0.1:3000");
