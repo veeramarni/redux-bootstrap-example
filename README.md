@@ -1,11 +1,11 @@
 # redux-bootstrap-example
 
-<img src="https://pbs.twimg.com/media/Czu_yEEWEAAJNwA.jpg:large" width="600" />
-
 [![Join the chat at https://gitter.im/redux-bootstrap/redux-bootstrap](https://badges.gitter.im/redux-bootstrap/redux-bootstrap.svg)](https://gitter.im/redux-bootstrap/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/redux-bootstrap/redux-bootstrap-example.svg?branch=master)](https://travis-ci.org/redux-bootstrap/redux-bootstrap-example)
 [![Dependencies](https://david-dm.org/redux-bootstrap/redux-bootstrap-example.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap-example#info=dependencies)
 [![img](https://david-dm.org/redux-bootstrap/redux-bootstrap/dev-status-example.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap-example/#info=devDependencies)
+
+<img src="https://pbs.twimg.com/media/Czu_yEEWEAAJNwA.jpg:large" width="600" />
 
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
