@@ -7,6 +7,8 @@
 
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
+<img src="https://pbs.twimg.com/media/Czu_yEEWEAAJNwA.jpg:large" width="600" />
+
 ## How to run this example?
 
 > :warning: Please ensure that you are using the latest version of Node.js and Docker.
