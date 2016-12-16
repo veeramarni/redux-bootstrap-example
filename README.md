@@ -9,6 +9,15 @@
 
 An example to showcase how to use [redux-bootstrap](https://github.com/redux-bootstrap/redux-bootstrap).
 
+## Features
+This template features:
+- Webpack-dev-server with hot module replacement enabled.
+- Node.js express application with server-side rendering.
+- Debugging with sourcemaps enabled.
+- Test coverage reports with sourcemaps enabled.
+
+- Run and deploy the application using a Docker container.
+
 ## How to run this example?
 
 > :warning: Please ensure that you are using the latest version of Node.js and Docker.
