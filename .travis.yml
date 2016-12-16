@@ -9,9 +9,8 @@ node_js:
   - stable
 
 after_success:
-
   - if [ "$TRAVIS_EVENT_TYPE" == "push" ]; then
-    npm run release && docker build -t redux-bootstrap/example .;
-    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD;
+    npm run release && docker build -t remojansen/redux-bootstrap-example .;
+    docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD;
     docker push remojansen/redux-bootstrap-example;
     fi
