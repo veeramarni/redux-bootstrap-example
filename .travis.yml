@@ -1,5 +1,9 @@
 sudo: required
 
+branches:  
+  only:
+    - master
+
 language: node_js
 
 services:
@@ -7,8 +11,8 @@ services:
 
 node_js:
   - stable
-  
-before_install:  
+
+before_install: 
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
 after_success:
