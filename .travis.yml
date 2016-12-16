@@ -7,10 +7,12 @@ services:
 
 node_js:
   - stable
+  
+before_install:  
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
 after_success:
   - if [ "$TRAVIS_EVENT_TYPE" == "push" ]; then
     npm run release && docker build -t remojansen/redux-bootstrap-example .;
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push remojansen/redux-bootstrap-example;
     fi
