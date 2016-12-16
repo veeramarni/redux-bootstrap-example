@@ -14,7 +14,7 @@ This template features:
 - Webpack-dev-server with hot module replacement enabled.
 - Node.js express application with server-side rendering.
 - Debugging with sourcemaps enabled.
-- Bundle size reports.
+- Webpack bundle size reports.
 - Test coverage reports with sourcemaps enabled.
 
 - Run and deploy the application using a Docker container.
