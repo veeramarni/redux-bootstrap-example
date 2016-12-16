@@ -1,9 +1,5 @@
 sudo: required
 
-branches:  
-  only:
-    - master
-
 language: node_js
 
 services:
@@ -12,10 +8,10 @@ services:
 node_js:
   - stable
 
-before_install: 
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-
 after_success:
-  - npm run release
-  - docker build -t remojansen/redux-bootstrap-example .
-  - docker push remojansen/redux-bootstrap-example
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    npm run release;
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker build -t remojansen/redux-bootstrap-example .;
+    docker push remojansen/redux-bootstrap-example;
+    fi
