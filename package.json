@@ -47,7 +47,7 @@
     "@types/react-redux": "^4.4.35",
     "@types/react-router": "^2.0.41",
     "@types/react-router-redux": "^4.0.35",
-    "@types/redux-devtools": "^3.0.36",
+    "@types/redux-devtools": "^3.0.37",
     "@types/redux-devtools-dock-monitor": "^1.1.29",
     "@types/redux-devtools-log-monitor": "^1.0.29",
     "@types/redux-immutable": "^3.0.31",
