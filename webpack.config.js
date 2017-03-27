@@ -35,24 +35,54 @@ module.exports = {
         path: __dirname + "/dist",
         publicPath: "/dist/"
     },
-    devtool: "source-map",
+    devtool: "cheap-module-eval-source-map",
     resolve: {
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+        extensions: ['.tsx', '.ts', '.js', '.css']
     },
     module: {
-        loaders: [
+        rules: [
+
+            /**
+             * Source map loader support for *.js files
+             * Extracts SourceMaps for source files that as added as sourceMappingURL comment.
+             *
+             * See: https://github.com/webpack/source-map-loader
+             */
             {
-                test: /\.tsx?$/, 
-                loader: "awesome-typescript-loader"
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'source-map-loader',
+                exclude: /(node_modules)/
             },
             {
+                enforce: 'pre',
+                test: /\.tsx?$/,
+                use: 'source-map-loader'
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'awesome-typescript-loader',
+                exclude: /(node_modules)/
+            },
+            /**
+             * Raw loader support for *.scss files
+             *
+             * See: https://github.com/webpack/raw-loader
+             */
+            {
                 test: /\.scss$/,
-                loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
-            }
+                loader: ['raw-loader', 'sass-loader'],
+            },
+            /**
+            * Raw loader support for *.css files
+            *
+            * See: https://github.com/webpack/raw-loader
+            */
+            {
+                test: /\.css$/,
+                loader: ['file-loader', 'url-loader', 'css-loader'],
+            },
         ],
-        preLoaders: [
-            { test: /\.js$/, loader: "source-map-loader" }
-        ]
     },
     plugins: plugins
 };

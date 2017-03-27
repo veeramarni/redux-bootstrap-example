@@ -17,9 +17,10 @@ describe("Repo Actions", () => {
 
     it("Should be possible to add a repo", (done) => {
 
-        let dispatchMock = (action: any) => { /* DO NOTHING */ };
+    // let dispatchMock = (action: any) => { /* DO NOTHING */ };
+        let dispatchMock = () =>  { /* DO NOTHING */ };
 
-        let dispatchMockSpy = sinon.spy(dispatchMock);
+        let dispatchMockSpy = sinon.spy(dispatchMock, "dispatch");
 
         let dispatchableAddRepoAsync = repoActions.addRepoAsync();
 

@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const webpackConfig = require('./webpack.config');
 
 module.exports = function (config) {
   config.set({
@@ -29,37 +30,6 @@ module.exports = function (config) {
     phantomjsLauncher: {
       exitOnResourceError: true
     },
-    webpack: {
-      module: {
-        preLoaders: [{
-          test: /\.(ts|tsx)$/,
-          loader: "tslint-loader",
-          exclude: /node_modules/
-        }],
-        loaders: [{
-          test: /\.(ts|tsx)$/,
-          loader: "awesome-typescript-loader",
-          exclude: /node_modules/
-        }],
-        postLoaders: [{
-          test: /src\/.+\.(ts|tsx)$/,
-          exclude: /(node_modules|\.spec\.ts$)/,
-          loader: "sourcemap-istanbul-instrumenter-loader?force-sourcemap=true"
-        }]
-      },
-      plugins: [
-        new webpack.SourceMapDevToolPlugin({
-          filename: null,
-          test: /\.(ts|tsx|js)($|\?)/i
-        })
-      ],
-      resolve: {
-        extensions: ["", ".ts", ".tsx", ".js"]
-      },
-      tslint: {
-        formatter: 'verbose',
-        emitErrors: !!process.env.CI
-      }
-    }
+    webpack: webpackConfig
   });
 };
